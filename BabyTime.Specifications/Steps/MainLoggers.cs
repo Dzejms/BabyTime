@@ -17,6 +17,8 @@ namespace BabyTime.Specifications.Steps
         [BeforeScenario()]
         private void SetUp()
         {
+            if (System.Configuration.ConfigurationManager.AppSettings["Environment"] == "Test")
+                Assert.Ignore();
             browser = new IE();
         }
 
