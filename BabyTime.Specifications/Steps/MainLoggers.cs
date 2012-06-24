@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using WatiN.Core;
+using WatiN.Core.Constraints;
 
 namespace BabyTime.Specifications.Steps
 {
@@ -58,7 +59,8 @@ namespace BabyTime.Specifications.Steps
         [Then(@"a diaper event is logged on the back end\.")]
         public void ThenADiaperEventIsLoggedOnTheBackEnd_()
         {
-            ScenarioContext.Current.Pending();
+            Span span = browser.Span(Find.ByClass("alert"));
+            Assert.True(span.Text == "Saved");
         }
 
         [AfterScenario()]
