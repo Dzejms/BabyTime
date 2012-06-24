@@ -1,32 +1,18 @@
-[![About Objects Logo][31]][1] ![spacer][32]
-
 # BABYTI.ME
-### [Download the source][2]
 
 <Simple Baby Activity Timer>
-
-![][50] ![][51] (resize to 320px width)
-
-## Overview
-
-Notes:
-
-*    <NOTE>
-*    <NOTE>
----
 
 ## Credit
 
 ### Authors
 
-#### Dzejms [@Dzejms]][10]
+#### Dzejms
 
 ### Copyright
 
-MD Template
-Visit [About Objects][1] for info on Objective-C and iOS training for iPhone and iPad developers.
+MD Template via [About Objects][1]
 
-&copy; 2009-2012 About Objects, Inc. All rights reserved worldwide.
+&copy; 2012 Ur mom, Inc. All rights reserved worldwide.
 
 [1]: http://aboutobjects.com
 
