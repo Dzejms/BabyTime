@@ -13,12 +13,16 @@ namespace BabyTime.Specifications.Steps
     public class MainLoggers
     {
         private Browser browser;
+        private bool runTests = true;
 
         [BeforeScenario()]
         private void SetUp()
         {
             if (System.Configuration.ConfigurationManager.AppSettings["Environment"] == "Test")
+            {
+                runTests = false;
                 Assert.Ignore();
+            }
             browser = new IE();
         }
 
@@ -60,7 +64,8 @@ namespace BabyTime.Specifications.Steps
         [AfterScenario()]
         public void TearDown()
         {
-            browser.Close();
+            if (runTests)
+                browser.Close();
         }
 
     }
