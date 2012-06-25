@@ -1,7 +1,7 @@
 ﻿@model object
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -14,10 +14,25 @@
         <header>BABYTI.ME</header>
         <nav><a href="/">Home</a> | <a href="/about">About</a></nav>
         <hr />
-        <div id="">
+        <div id="timers">
             <form method="POST" action="" id="diaperTimer">
                 <input type="submit" name="diaperButton" id="diaperButton" value="Diaper">
-                <input type="text" name="diaperTimer" id="diaperTimerTextBox" value="00:00:02">
+                <input type="text" name="diaperTimerTextBox" id="diaperTimerTextBox" value="" data-fromTime="06/24/2012 09:01:23 PM">
+                <span class="alert">Saved</span>
+            </form>
+            <form method="POST" action="" id="foodTimer">
+                <input type="submit" name="foodButton" id="foodButton" value="Food">
+                <input type="text" name="foodTimerTextBox" id="foodTimerTextBox" value="" data-fromTime="06/24/2012 09:11:16 PM">
+                <span class="alert">Saved</span>
+            </form>
+            <form method="POST" action="" id="sleepTimer">
+                <input type="submit" name="sleepButton" id="sleepButton" value="Sleep">
+                <input type="text" name="sleepTimerTextBox" id="sleepTimerTextBox" value="" data-fromTime="06/24/2012 09:20:45 PM">
+                <span class="alert">Saved</span>
+            </form>
+            <form method="POST" action="" id="otherTimer">
+                <input type="submit" name="otherButton" id="otherButton" value="Other">
+                <input type="text" name="otherTimerTextBox" id="otherTimerTextBox" value="" data-fromTime="06/24/2012 09:17:11 PM">
                 <span class="alert">Saved</span>
             </form>
         </div>
