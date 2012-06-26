@@ -19,10 +19,10 @@ function GetTimers() {
     if (!localStorage.getItem("diaperTimer")) {
         ClearAllTimers();
     } else {
-        diaperTimer = new Timer(JSON.parse(localStorage.getItem("diaperTimer")).startTime);
-        foodTimer = new Timer(JSON.parse(localStorage.getItem("foodTimer")).startTime);
-        sleepTimer = new Timer(JSON.parse(localStorage.getItem("sleepTimer")).startTime);
-        otherTimer = new Timer(JSON.parse(localStorage.getItem("otherTimer")).startTime);
+        diaperTimer = new StopWatch(JSON.parse(localStorage.getItem("diaperTimer")).startTime);
+        foodTimer = new StopWatch(JSON.parse(localStorage.getItem("foodTimer")).startTime);
+        sleepTimer = new StopWatch(JSON.parse(localStorage.getItem("sleepTimer")).startTime);
+        otherTimer = new StopWatch(JSON.parse(localStorage.getItem("otherTimer")).startTime);
     }
 }
 
@@ -34,25 +34,17 @@ function SaveTimers() {
 }
 
 function ClearAllTimers() {
-    diaperTimer = new Timer();
-    foodTimer = new Timer();
-    sleepTimer = new Timer();
-    otherTimer = new Timer();
-}
-
-function StartClock() {
-    interval = setInterval(UpdateTimes(), 1000);
-}
-
-function StopClock() {
-    clearInterval(interval);
+    diaperTimer = new StopWatch();
+    foodTimer = new StopWatch();
+    sleepTimer = new StopWatch();
+    otherTimer = new StopWatch();
 }
 
 $(function () {
     GetTimers();
     UpdateTimes();
     SaveTimers();
-    var interval = setInterval("UpdateTimes();", 1000);
+    var interval = setInterval("UpdateTimes();", 250);
 
     $("#diaperTimer").find(":submit").click(function (event) {
         event.preventDefault();
@@ -80,8 +72,6 @@ $(function () {
     $("#clearAllTimers").click(function (event) {
         event.preventDefault();
         ClearAllTimers();
-        StopClock();
-        StartClock();
         SaveTimers();
     });
 });

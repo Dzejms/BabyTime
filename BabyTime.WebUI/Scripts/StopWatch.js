@@ -1,4 +1,4 @@
-﻿var Timer = function (time) {
+﻿var StopWatch = function (time) {
     this.startTime = time ? new Date(time) : new Date();
     var obj = { "h": 0, "m": 0, "s": 0 };
     
