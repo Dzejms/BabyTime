@@ -17,10 +17,7 @@ function UpdateTimes() {
 
 function GetTimers() {
     if (!localStorage.getItem("diaperTimer")) {
-        diaperTimer = new Timer(getFromTime("diaperTimerTextBox"));
-        foodTimer = new Timer(getFromTime("foodTimerTextBox"));
-        sleepTimer = new Timer(getFromTime("sleepTimerTextBox"));
-        otherTimer = new Timer(getFromTime("otherTimerTextBox"));
+        ClearAllTimers();
     } else {
         diaperTimer = new Timer(JSON.parse(localStorage.getItem("diaperTimer")).startTime);
         foodTimer = new Timer(JSON.parse(localStorage.getItem("foodTimer")).startTime);
@@ -36,9 +33,40 @@ function SaveTimers() {
     localStorage.setItem("otherTimer", JSON.stringify(otherTimer));
 }
 
+function ClearAllTimers() {
+    diaperTimer = new Timer();
+    foodTimer = new Timer();
+    sleepTimer = new Timer();
+    otherTimer = new Timer();
+}
+
 $(function () {
     GetTimers();
     UpdateTimes();
     SaveTimers();
     setInterval("UpdateTimes();", 1000);
+
+    $("#diaperTimer").find(":submit").click(function (event) {
+        event.preventDefault();
+        diaperTimer.startTime = new Date();
+        SaveTimers();
+    });
+
+    $("#foodTimer").find(":submit").click(function (event) {
+        event.preventDefault();
+        foodTimer.startTime = new Date();
+        SaveTimers();
+    });
+
+    $("#sleepTimer").find(":submit").click(function (event) {
+        event.preventDefault();
+        sleepTimer.startTime = new Date();
+        SaveTimers();
+    });
+
+    $("#otherTimer").find(":submit").click(function (event) {
+        event.preventDefault();
+        otherTimer.startTime = new Date();
+        SaveTimers();
+    });
 });

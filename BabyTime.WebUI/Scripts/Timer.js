@@ -1,5 +1,5 @@
 ﻿var Timer = function (time) {
-    this.startTime = new Date(time);
+    this.startTime = time ? new Date(time) : new Date();
     var obj = { "h": 0, "m": 0, "s": 0 };
     
     this.GetFormattedTime = function () {
