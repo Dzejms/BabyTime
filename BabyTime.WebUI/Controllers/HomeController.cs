@@ -16,5 +16,9 @@ namespace BabyTime.WebUI.Controllers
             return View();
         }
 
+        public ViewResult New()
+        {
+            return View("Index");
+        }
     }
 }
