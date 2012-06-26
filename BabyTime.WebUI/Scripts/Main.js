@@ -1,4 +1,4 @@
-﻿var diaperTimer, foodTimer, sleepTimer, otherTimer;
+﻿var diaperTimer, foodTimer, sleepTimer, otherTimer, interval;
 
 function getFromTime(id) {
     return jQuery('#' + id, "#timers").data("fromtime");
@@ -40,11 +40,19 @@ function ClearAllTimers() {
     otherTimer = new Timer();
 }
 
+function StartClock() {
+    interval = setInterval(UpdateTimes(), 1000);
+}
+
+function StopClock() {
+    clearInterval(interval);
+}
+
 $(function () {
     GetTimers();
     UpdateTimes();
     SaveTimers();
-    setInterval("UpdateTimes();", 1000);
+    var interval = setInterval("UpdateTimes();", 1000);
 
     $("#diaperTimer").find(":submit").click(function (event) {
         event.preventDefault();
@@ -67,6 +75,13 @@ $(function () {
     $("#otherTimer").find(":submit").click(function (event) {
         event.preventDefault();
         otherTimer.startTime = new Date();
+        SaveTimers();
+    });
+    $("#clearAllTimers").click(function (event) {
+        event.preventDefault();
+        ClearAllTimers();
+        StopClock();
+        StartClock();
         SaveTimers();
     });
 });
