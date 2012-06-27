@@ -1,11 +1,14 @@
 ﻿var StopWatch = function (time) {
     this.startTime = time ? new Date(time) : new Date();
     var obj = { "h": 0, "m": 0, "s": 0 };
-    
+
+    this.ResetTime = function () {
+        this.startTime = new Date();
+    },
     this.GetFormattedTime = function () {
         var diff = new Date() - this.startTime;
         var t = this.secondsToTime(diff / 1000);
-        
+
         return t.h + ':' + t.m + ':' + t.s;
     },
     this.secondsToTime = function (secs) {
@@ -16,8 +19,8 @@
 
         var divisorForSeconds = divisorForMinutes % 60;
         var seconds = Math.ceil(divisorForSeconds);
-        
-        
+
+
         obj.h = hours < 10 ? "0" + hours : hours,
         obj.m = minutes < 10 ? "0" + minutes : minutes,
         obj.s = seconds < 10 ? "0" + seconds : seconds
