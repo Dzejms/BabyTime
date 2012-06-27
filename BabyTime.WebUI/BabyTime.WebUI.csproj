@@ -98,6 +98,7 @@
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Timer.js" />
     <Content Include="Scripts\Main.js" />
     <Content Include="Scripts\tests\qunit\qunit.css" />
     <Content Include="Scripts\tests\qunit\qunit.js" />

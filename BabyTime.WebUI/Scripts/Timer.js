@@ -25,19 +25,19 @@
 };
 
 var TimersCollection = function (timerNames) {
-    this.timers = timerNames ? this.AddNewTimers(timerNames) : [];
-
+    this.timers = [];
     this.Add = function (timer) {
         this.timers.push(timer);
     };
+    this.AddNewTimers = function (namesArray) {
+        for (var i = 0; i < namesArray.length; i++) {
+            this.Add(new Timer(namesArray[i]));
+        }
+    };
+    if (timerNames && timerNames.length >0) this.AddNewTimers(timerNames);
 
     this.ClearTimers = function () {
 
     };
 
-    this.AddNewTimers = function (namesArray) {
-        for (var i = 0; i < namesArray.length(); i++) {
-            this.Add(new Timer(namesArray[i]));
-        }
-    };
 };
