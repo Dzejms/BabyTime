@@ -7,6 +7,7 @@
 
     $button.click(function (event) {
         self.stopWatch.ResetTime();
+        event.preventDefault();
     });
 
     this.ShowTime = function () {
@@ -20,7 +21,7 @@
         $button.attr("id", newName + "Button");
         this.Name = newName;
     };
-    setInterval(self.ShowTime   , 100);
+    setInterval(self.ShowTime, 100);
 };
 
 var TimersCollection = function (timerNames) {
