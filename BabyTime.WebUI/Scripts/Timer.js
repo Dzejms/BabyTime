@@ -1,27 +1,26 @@
 ﻿var Timer = function (name, sw, $tb) {
     this.Name = name || "Other";
     this.stopWatch = sw || new StopWatch();
-    var $textBox = $tb || $("#" + this.Name + "TextBox");
+    var $textBox = $tb || $("#" + this.Name + "TimerTextBox");
     var $button = $textBox.siblings(".startbutton");
-
-    var interval = setInterval(this.ShowTime, 100);
+    var self = this;
 
     $button.click(function (event) {
-        var self = this;
         self.stopWatch.ResetTime();
     });
 
     this.ShowTime = function () {
-        $textBox.val(this.stopWatch.GetFormattedTime());
+        $textBox.val(self.stopWatch.GetFormattedTime());
     };
 
     this.Rename = function (newName) {
-        $textBox.attr("name", newName + "TextBox");
-        $textBox.attr("id", newName + "TextBox");
+        $textBox.attr("name", newName + "TimerTextBox");
+        $textBox.attr("id", newName + "TimerTextBox");
         $button.attr("name", newName + "Button");
         $button.attr("id", newName + "Button");
         this.Name = newName;
     };
+    setInterval(self.ShowTime   , 100);
 };
 
 var TimersCollection = function (timerNames) {
@@ -34,7 +33,7 @@ var TimersCollection = function (timerNames) {
             this.Add(new Timer(namesArray[i]));
         }
     };
-    if (timerNames && timerNames.length >0) this.AddNewTimers(timerNames);
+    if (timerNames && timerNames.length > 0) this.AddNewTimers(timerNames);
 
     this.ClearTimers = function () {
 

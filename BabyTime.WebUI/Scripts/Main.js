@@ -19,12 +19,13 @@ function InsertNewTimerHtml(name, $parent) {
 }
 
 $(function () {
-    timersCollection = GetTimers(defaultTimers);
     var $timers = $("#timers");
     for (var i = 0; i < defaultTimers.length; i++) {
         InsertNewTimerHtml(defaultTimers[i], $timers);
     }
 
+    timersCollection = GetTimers(defaultTimers);
+    
     $("#clearAllTimers").click(function (event) {
         timersCollection.ClearTimers();
         timersCollection.SaveTimers();
