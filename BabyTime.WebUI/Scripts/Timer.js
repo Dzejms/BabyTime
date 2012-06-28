@@ -10,6 +10,10 @@
         event.preventDefault();
     });
 
+    this.ResetTimer = function () {
+        this.stopWatch.ResetTime();
+    };
+
     this.ShowTime = function () {
         $textBox.val(self.stopWatch.GetFormattedTime());
     };
@@ -37,7 +41,9 @@ var TimersCollection = function (timerNames) {
     if (timerNames && timerNames.length > 0) this.AddNewTimers(timerNames);
 
     this.ClearTimers = function () {
-
+        for (var i = 0; i < this.timers.length; i++) {
+            this.timers[i].ResetTimer();
+        }
     };
 
 };

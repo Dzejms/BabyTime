@@ -1,5 +1,5 @@
 ﻿var timersCollection;
-var defaultTimers = ["Diaper", "Food", "Sleep", "Music"];
+var defaultTimers = ["Diaper", "Food", "Sleep", "Music", "Dance", "Fun"];
 
 function GetTimers(defaultTimers) {
     if (!localStorage.getItem("timersCollection")) {
