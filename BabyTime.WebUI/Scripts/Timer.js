@@ -6,12 +6,13 @@
     var self = this;
 
     $button.click(function (event) {
-        self.stopWatch.ResetTime();
+        self.Reset();
         event.preventDefault();
     });
 
-    this.ResetTimer = function () {
+    this.Reset = function () {
         this.stopWatch.ResetTime();
+        timersCollection.Save();
     };
 
     this.ShowTime = function () {
@@ -25,25 +26,10 @@
         $button.attr("id", newName + "Button");
         this.Name = newName;
     };
-    setInterval(self.ShowTime, 100);
-};
 
-var TimersCollection = function (timerNames) {
-    this.timers = [];
-    this.Add = function (timer) {
-        this.timers.push(timer);
-    };
-    this.AddNewTimers = function (namesArray) {
-        for (var i = 0; i < namesArray.length; i++) {
-            this.Add(new Timer(namesArray[i]));
-        }
-    };
-    if (timerNames && timerNames.length > 0) this.AddNewTimers(timerNames);
-
-    this.ClearTimers = function () {
-        for (var i = 0; i < this.timers.length; i++) {
-            this.timers[i].ResetTimer();
-        }
+    this.Start = function () {
+        setInterval(self.ShowTime, 100);
     };
 
+    this.Start();
 };

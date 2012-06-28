@@ -5,7 +5,10 @@ function GetTimers(defaultTimers) {
     if (!localStorage.getItem("timersCollection")) {
         return new TimersCollection(defaultTimers);
     } else {
-        return JSON.parse(localStorage.getItem("timersCollection"));
+        var timers = new TimersCollection();
+        timers.Load();
+        timers.Start();
+        return timers;
     }
 }
 
@@ -19,15 +22,17 @@ function InsertNewTimerHtml(name, $parent) {
 }
 
 $(function () {
-    var $timers = $("#timers");
+    var $timersDiv = $("#timers");
     for (var i = 0; i < defaultTimers.length; i++) {
-        InsertNewTimerHtml(defaultTimers[i], $timers);
+        InsertNewTimerHtml(defaultTimers[i], $timersDiv);
     }
 
     timersCollection = GetTimers(defaultTimers);
-    
+
     $("#clearAllTimers").click(function (event) {
-        timersCollection.ClearTimers();
-        timersCollection.SaveTimers();
+        timersCollection.Clear();
+        timersCollection.Save();
     });
 });
+
+
