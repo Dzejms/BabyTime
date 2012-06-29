@@ -16,7 +16,7 @@
     };
 
     this.ShowTime = function () {
-        $textBox.val(self.stopWatch.GetFormattedTime());
+        $textBox.text(self.stopWatch.GetFormattedTime());
     };
 
     this.Rename = function (newName) {

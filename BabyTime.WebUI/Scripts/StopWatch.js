@@ -21,13 +21,14 @@
         var seconds = Math.ceil(divisorForSeconds);
 
 
-        obj.h = hours < 10 ? "0" + hours : hours,
-        obj.m = minutes < 10 ? "0" + minutes : minutes,
-        obj.s = seconds < 10 ? "0" + seconds : seconds
+        obj.h = hours < 10 ? "0" + hours : hours;
+        obj.m = minutes < 10 ? "0" + minutes : minutes;
+        obj.s = seconds < 10 ? "0" + seconds : seconds;
 
         if (obj.s == 60) {
             obj.s = "00";
             obj.m++;
+            obj.m = "0" + obj.m;
         }
         return obj;
     };

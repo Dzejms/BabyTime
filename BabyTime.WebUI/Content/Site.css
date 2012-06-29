@@ -13,6 +13,26 @@ section {
     display: block;
 }
 
+.timerDisplay
+{
+    margin: 0 10px 0 10px;
+    min-width: 200px;
+}
+
+#timers label 
+{
+    width: 50px;
+    border-color: #000;
+    border-width: 4;
+    display: inline-block;
+}
+
+.startbutton
+{
+    width: 20px;
+    
+}
+
 /* Styles for basic forms
 -----------------------------------------------------------*/
 

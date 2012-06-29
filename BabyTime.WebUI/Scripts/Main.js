@@ -14,9 +14,9 @@ function GetTimers(defaultTimers) {
 
 function InsertNewTimerHtml(name, $parent) {
     var html ='<form method="POST" action="" id="' + name + 'Timer">';
-    html += '<button name="' + name + 'Button" id="' + name + 'Button" class="startbutton">' + name + '</button>';
-    html += '<input type="text" name="' + name + 'TimerTextBox" id="' + name + 'TimerTextBox" value="" data-fromTime="">';
-    html += '<span class="alert"></span>';
+    html += '<label  id="' + name + 'TimerLabel" for="' + name + 'TimerTextBox">' + name + '</label>';
+    html += '<span class="timerDisplay" id="' + name + 'TimerTextBox" data-fromTime=""></span>';
+    html += '<button name="' + name + 'Button" id="' + name + 'Button" class="startbutton">*</button>';
     html += '</form>';
     $parent.append(html);
 }
