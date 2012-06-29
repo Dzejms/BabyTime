@@ -38,6 +38,10 @@
         $textBox = $("#" + this.Name + "TimerTextBox");
         $button = $textBox.siblings(".startbutton");
         $label = $textBox.siblings("div");
+        $button.click(function (event) {
+            self.Reset();
+            event.preventDefault();
+        });
         $label.on("blur", function (event) {
             self.Rename($label.text());
             console.log("blur");
