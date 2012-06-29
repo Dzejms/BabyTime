@@ -3,11 +3,18 @@
     this.stopWatch = sw || new StopWatch();
     var $textBox = $tb || $("#" + this.Name + "TimerTextBox");
     var $button = $textBox.siblings(".startbutton");
+    var $label = $textBox.siblings("div");
     var self = this;
 
     $button.click(function (event) {
         self.Reset();
         event.preventDefault();
+    });
+
+
+    $label.on("blur", function (event) {
+        self.Rename($label.text());
+        console.log("blur");
     });
 
     this.Reset = function () {
@@ -20,11 +27,21 @@
     };
 
     this.Rename = function (newName) {
-        $textBox.attr("name", newName + "TimerTextBox");
         $textBox.attr("id", newName + "TimerTextBox");
         $button.attr("name", newName + "Button");
         $button.attr("id", newName + "Button");
         this.Name = newName;
+        timersCollection.Save();
+    };
+
+    this.BindToElements = function() {
+        $textBox = $("#" + this.Name + "TimerTextBox");
+        $button = $textBox.siblings(".startbutton");
+        $label = $textBox.siblings("div");
+        $label.on("blur", function (event) {
+            self.Rename($label.text());
+            console.log("blur");
+        });
     };
 
     this.Start = function () {

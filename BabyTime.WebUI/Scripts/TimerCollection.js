@@ -18,6 +18,12 @@
         }
     };
 
+    this.ReBind = function () {
+        for (var i = 0; i < this.timers.length; i++) {
+            this.timers[i].BindToElements();
+        }
+    };
+
     this.Clear = function () {
         for (var i = 0; i < this.timers.length; i++) {
             this.timers[i].Reset();

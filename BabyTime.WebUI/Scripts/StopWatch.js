@@ -28,8 +28,8 @@
         if (obj.s == 60) {
             obj.s = "00";
             obj.m++;
-            obj.m = "0" + obj.m;
         }
+        // Add unit tests so 00:01:60 can't happen
         return obj;
     };
 };

@@ -19,12 +19,13 @@ section {
     min-width: 200px;
 }
 
-#timers label 
+#timers div 
 {
     width: 50px;
     border-color: #000;
     border-width: 4;
     display: inline-block;
+    cursor: text;
 }
 
 .startbutton
