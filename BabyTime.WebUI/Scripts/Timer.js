@@ -6,7 +6,7 @@
 InsertNewTimerHtml = function (name, label, $parent) {
     var html = '<fieldset data-role="controlgroup">';
     html += '<div class="label" contenteditable=true id="' + name + 'TimerLabel">' + label + '</div>';
-    html += '<input class="timerDisplay" type="text" id="' + name + 'TimerTextBox" value="" disabled="disabled"></input>';
+    html += '<input class="timerDisplay" type="text" id="' + name + 'TimerTextBox" value="" readonly="readonly"></input>';
     html += '<a class="startbutton" name="' + name + 'Button" id="' + name + 'Button" data-role="button" data-inline="false" data-transition="flow" data-theme="e" href="" data-icon="refresh" data-iconpos="left">Restart</a></div>';
     html += '</fieldset>';
 //    var html = '<form method="POST" action="" id="' + name + 'Timer">';
