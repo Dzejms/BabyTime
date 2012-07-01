@@ -99,7 +99,7 @@ textarea
     display: none;
 }
 
-input[type=Time]
+input[type=Text]
 {
 	text-align: right;
 	font-size: 20px;
