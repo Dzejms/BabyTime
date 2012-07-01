@@ -21,17 +21,26 @@ section {
 
 #timers div 
 {
-    width: 50px;
+    min-width: 75px;
     border-color: #000;
     border-width: 4;
-    display: inline-block;
     cursor: text;
 }
 
 .startbutton
 {
     width: 20px;
-    
+}
+
+.timeandbutton
+{
+    width: 300px;
+    margin: 0 0 0 40px;
+}
+
+.label
+{
+    font-size: 24px;
 }
 
 /* Styles for basic forms

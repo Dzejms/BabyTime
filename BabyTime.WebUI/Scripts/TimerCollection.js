@@ -18,22 +18,16 @@
         }
     };
 
-    this.ReBind = function () {
-        for (var i = 0; i < this.timers.length; i++) {
-            this.timers[i].BindToElements();
-        }
-    };
-
     this.Clear = function () {
         for (var i = 0; i < this.timers.length; i++) {
             this.timers[i].Reset();
         }
     };
 
-    this.Load = function () {
+    this.Load = function ($parent) {
         var obj = JSON.parse(localStorage.getItem("timersCollection"));
         for (var i = 0; i < obj.timers.length; i++) {
-            var timer = new Timer(obj.timers[i].Name, new StopWatch(obj.timers[i].stopWatch.startTime));
+            var timer = new Timer(obj.timers[i].Name, new StopWatch(obj.timers[i].stopWatch.startTime), $parent);
             this.timers.push(timer);
         }
     };
