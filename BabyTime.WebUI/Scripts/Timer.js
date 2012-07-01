@@ -3,12 +3,17 @@
     return name.replace(' ', '');
 };
 
-InsertNewTimerHtml = function(name, label, $parent) {
-    var html = '<form method="POST" action="" id="' + name + 'Timer">';
-    html += '<div class="label" contenteditable="true" id="' + name + 'TimerLabel">' + label + '</div>';
-    html += '<div class="timeandbutton"><span class="timerDisplay" id="' + name + 'TimerTextBox" data-fromTime=""></span>';
-    html += '<button name="' + name + 'Button" id="' + name + 'Button" class="startbutton"></button></div>';
-    html += '</form>';
+InsertNewTimerHtml = function (name, label, $parent) {
+    var html = '<fieldset data-role="controlgroup">';
+    html += '<div class="label" contenteditable=true id="' + name + 'TimerLabel">' + label + '</div>';
+    html += '<input class="timerDisplay" type="time" id="' + name + 'TimerTextBox" value="" disabled="disabled"></input>';
+    html += '<a class="startbutton" name="' + name + 'Button" id="' + name + 'Button" data-role="button" data-inline="false" data-transition="flow" data-theme="e" href="" data-icon="refresh" data-iconpos="left">Restart</a></div>';
+    html += '</fieldset>';
+//    var html = '<form method="POST" action="" id="' + name + 'Timer">';
+//    html += '<div class="label" contenteditable="true" id="' + name + 'TimerLabel">' + label + '</div>';
+//    html += '<div class="timeandbutton"><span class="timerDisplay" id="' + name + 'TimerTextBox" data-fromTime=""></span>';
+//    html += '<button name="' + name + 'Button" id="' + name + 'Button" class="startbutton"></button></div>';
+//    html += '</form>';
     $parent.append(html);
 };
 
@@ -21,7 +26,7 @@ var Timer = function (name, sw, $parent) {
 
     var $textBox = $parent.find("#" + this.Name + "TimerTextBox");
     var $button = $textBox.siblings(".startbutton");
-    var $label = $textBox.parent().siblings(".label");
+    var $label = $textBox.siblings(".label");
     var self = this;
 
     $button.on("click", function (event) {
@@ -40,7 +45,7 @@ var Timer = function (name, sw, $parent) {
     };
 
     this.ShowTime = function () {
-        $textBox.text(self.stopWatch.GetFormattedTime());
+        $textBox.val(self.stopWatch.GetFormattedTime());
     };
 
     this.Rename = function (newName) {
