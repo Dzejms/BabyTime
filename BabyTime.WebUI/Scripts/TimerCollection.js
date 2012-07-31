@@ -1,12 +1,13 @@
-﻿var TimersCollection = function (timerNames) {
+﻿var TimersCollection = function (timerNames, $parent) {
     this.timers = [];
+    this.$parent = $parent;
     this.Add = function (timer) {
         this.timers.push(timer);
     };
 
-    this.AddNewTimers = function (namesArray) {
+    this.AddNewTimers = function (namesArray, $parent) {
         for (var i = 0; i < namesArray.length; i++) {
-            this.Add(new Timer(namesArray[i]));
+            this.Add(new Timer(namesArray[i], null, this.$parent));
         }
     };
 
