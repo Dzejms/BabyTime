@@ -3,7 +3,7 @@ var defaultTimers = ["Diaper", "Food", "Sleep", "Music", "Dance", "Fun"];
 
 function GetTimers(defaultTimers, $parent) {
     if (!localStorage.getItem("timersCollection")) {
-        return new TimersCollection(defaultTimers);
+        return new TimersCollection(defaultTimers, $parent);
     } else {
         var timers = new TimersCollection();
         timers.Load($parent);
