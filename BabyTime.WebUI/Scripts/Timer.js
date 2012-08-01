@@ -31,17 +31,18 @@ var Timer = function (name, sw, $parent) {
 
     $button.on("click", function (event) {
         self.Reset();
+        timersCollection.Save();
         event.preventDefault();
     });
 
 
     $label.on("blur", function (event) {
         self.Rename($label.text());
+        timersCollection.Save();
     });
 
     this.Reset = function () {
         this.stopWatch.ResetTime();
-        timersCollection.Save();
     };
 
     this.ShowTime = function () {
@@ -55,7 +56,6 @@ var Timer = function (name, sw, $parent) {
         $button.attr("id", name + "Button");
         this.LabelText = newName;
         this.Name = name;
-        timersCollection.Save();
     };
 
     this.BindToElements = function () {
@@ -68,7 +68,7 @@ var Timer = function (name, sw, $parent) {
         });
         $label.on("blur", function (event) {
             self.Rename($label.text());
-            console.log("blur");
+            timersCollection.Save();
         });
     };
 

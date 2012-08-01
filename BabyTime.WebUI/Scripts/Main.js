@@ -21,6 +21,7 @@ $(function () {
     $("#clearAllTimers").click(function (event) {
         timersCollection.Clear();
         timersCollection.Save();
+        event.preventDefault();
     });
 });
 
