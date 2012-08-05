@@ -1,21 +1,17 @@
-﻿//new StopWatch({startTime: new Date(time)});
-StopWatch = Backbone.Model.extend({
-    initialize: function() {
+﻿var StopWatch = function (time) {
+    this.startTime = time ? new Date(time) : new Date();
+    var obj = { "h": 0, "m": 0, "s": 0 };
 
+    this.ResetTime = function () {
+        this.startTime = new Date();
     },
-    defaults: function() {
-        startTime: new Date();
-    },
-    resetTime: function() {
-        this.set({startTime: new Date()});
-    },
-    getFormattedTime: function() {
-        var diff = new Date() - this.get("startTime");
+    this.GetFormattedTime = function () {
+        var diff = new Date() - this.startTime;
         var t = this.secondsToTime(diff / 1000);
+
         return t.h + ':' + t.m + ':' + t.s;
     },
-    secondsToTime: function(secs) {
-        var obj = {};
+    this.secondsToTime = function (secs) {
         var hours = Math.floor(secs / (60 * 60));
 
         var divisorForMinutes = secs % (60 * 60);
@@ -35,5 +31,5 @@ StopWatch = Backbone.Model.extend({
         }
         // Add unit tests so 00:01:60 can't happen
         return obj;
-    }
-});
+    };
+};
