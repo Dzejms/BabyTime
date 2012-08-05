@@ -5,3 +5,12 @@
 }
 
 <a id="clearAllTimers" href="">Clear</a>
+
+
+<script type="text/template" id="timerTemplate">
+    <fieldset data-role="controlgroup">
+    <div class="label" contenteditable=true id="<%=name%>TimerLabel"><%=label%></div>
+    <input class="timerDisplay" type="text" id="<%=name%>TimerTextBox" value="" readonly="readonly"></input>
+    <a class="startbutton" name="<%=name%>Button" id="<%=name%>Button" data-role="button" data-inline="false" data-transition="flow" data-theme="e" href="" data-icon="refresh" data-iconpos="left">Restart</a></div>
+    </fieldset>
+</script>
