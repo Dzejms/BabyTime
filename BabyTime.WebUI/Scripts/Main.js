@@ -1,28 +1,22 @@
-﻿var timersCollection;
-var defaultTimers = ["Diaper", "Food", "Sleep", "Music", "Dance", "Fun"];
+﻿$(function() {
+    var data = [
+        { Id: 1, Name: "Diaper"},
+        { Id: 2, Name: "Food"},
+        { Id: 3, Name: "Sleep"},
+        { Id: 4, Name: "Music"}
+    ];
+    
+    var viewModel = {
+        // data
+        timers: ko.observableArray(data),
+        timerToAdd: ko.observable(""),
+        
+        // Behavior
+        addTimer: function () {
+            this.timers.push({ Name: this.timerToAdd() });
+            this.timerToAdd("");
+        }
+    };
 
-function GetTimers(defaultTimers, $parent) {
-    if (!localStorage.getItem("timersCollection")) {
-        return new TimersCollection(defaultTimers, $parent);
-    } else {
-        var timers = new TimersCollection();
-        timers.Load($parent);
-        return timers;
-    }
-}
-
-
-
-$(function () {
-    var $timersDiv = $("#timers");
-    timersCollection = GetTimers(defaultTimers, $timersDiv);
-    timersCollection.Start();
-
-    $("#clearAllTimers").click(function (event) {
-        timersCollection.Clear();
-        timersCollection.Save();
-        event.preventDefault();
-    });
+    ko.applyBindings(viewModel);
 });
-
-

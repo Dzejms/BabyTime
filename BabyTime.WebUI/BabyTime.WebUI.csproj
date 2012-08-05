@@ -114,9 +114,10 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\localstoragepolyfill.js" />
+    <Content Include="Scripts\Main.js" />
     <Content Include="Scripts\my.js" />
     <Content Include="Scripts\Timer.js" />
-    <Content Include="Scripts\Main.js" />
+    <Content Include="Scripts\Main.old.js" />
     <Content Include="Scripts\tests\qunit\qunit.css" />
     <Content Include="Scripts\tests\qunit\qunit.js" />
     <Content Include="Scripts\tests\runner.html" />

@@ -3,7 +3,7 @@
     return name.replace(' ', '');
 };
 
-InsertNewTimerHtml = function (name, label, $parent) {
+InsertNewTimerHtml = function (name, label, $parent) {  
     var html = '<fieldset data-role="controlgroup">';
     html += '<div class="label" contenteditable=true id="' + name + 'TimerLabel">' + label + '</div>';
     html += '<input class="timerDisplay" type="text" id="' + name + 'TimerTextBox" value="" readonly="readonly"></input>';

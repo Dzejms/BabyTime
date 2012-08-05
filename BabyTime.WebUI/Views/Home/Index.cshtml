@@ -4,4 +4,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-            <a id="clearAllTimers" data-role="button" data-inline="false" data-transition="flow" data-theme="e" href="" data-icon="refresh" data-iconpos="left">Clear</a>
+@*<a id="clearAllTimers" data-role="button" data-inline="false" data-transition="flow" data-theme="e" href="" data-icon="refresh" data-iconpos="left">Clear</a>*@
+
+<div id="timersList">
+    <h2>Timers</h2>
+    <div class="timersContent">
+        <input type="text" placeholder="Timer Name" data-bind="value: timerToAdd, valueUpdate: 'afterkeydown'"/>
+        <button data-bind="click: addTimer">+ Add</button>
+        
+        <ul data-bind="template: { name: 'timersTemplate', foreach: timers}">
+            
+        </ul>
+    </div>
+
+</div>
+
+<script id="timersTemplate" type="text/html">
+    <li class="timer">
+        <span data-bind="text: Name"></span>
+        <div>
+            <a href="#" class="timer-edit">Edit</a>
+            <a href="#" class="timer-delete">Delete</a>
+        </div>
+    </li>
+</script>
+<script src="@Url.Content("~/Scripts/Main.js")" type="text/javascript"></script>
