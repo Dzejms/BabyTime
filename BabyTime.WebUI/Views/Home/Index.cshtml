@@ -20,7 +20,7 @@
 </div>
 
 <script id="timersTemplate" type="text/html">
-    <li class="timer">
+    <li class="timer" data-bind="click: $parent.selectTimer">
         <span data-bind="text: Name"></span>
         <div>
             <a href="#" class="timer-edit">Edit</a>
