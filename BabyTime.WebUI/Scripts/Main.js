@@ -33,7 +33,14 @@
 
 $(function() {
     window.Timer = Backbone.Model.extend({
+        isStarted: function () {
+            return false;
+        }
+    });
 
+    window.timers = Backbone.Collection.extend({
+        model: Timer,
+        url: '/api/timers'
     });
 
     window.TimerView = Backbone.View.extend({
@@ -51,6 +58,7 @@ $(function() {
             var renderedContent = this.template(this.model.toJSON());
             this.$el.html(renderedContent);
             return this;
-        }
+        },
+        
     });
 });
