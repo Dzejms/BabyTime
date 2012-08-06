@@ -7,12 +7,23 @@ using System.Web.Http;
 
 namespace BabyTime.WebUI.Controllers
 {
+    public class Timer
+    {
+        public string Name { get; set; }
+        public string Label{ get; set; }
+        public DateTime Time { get; set; }
+    }
     public class TimersController : ApiController
     {
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public IEnumerable<Timer> Get()
         {
-            return new string[] { "value1", "value2" };
+            IEnumerable<Timer> result = new[]
+                             {
+                                 new Timer {Name = "diapur", Label = "Diapur", Time = new DateTime()},
+                                 new Timer {Name = "food", Label = "Food", Time = new DateTime()}
+                             };
+            return result ;
         }
 
         // GET api/<controller>/5
