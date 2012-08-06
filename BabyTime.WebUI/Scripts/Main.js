@@ -38,7 +38,7 @@ $(function() {
         }
     });
 
-    window.timers = Backbone.Collection.extend({
+    window.Timers = Backbone.Collection.extend({
         model: Timer,
         url: '/api/timers'
     });
