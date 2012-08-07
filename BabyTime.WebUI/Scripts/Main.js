@@ -101,7 +101,13 @@ $(function () {
         home: function () {
             var $container = $('#timers').empty();
             $container.append(this.timersListView.render().el);
+        },
+        
+        login: function () {
+            var $container = $('#timers').empty();
+            $container.append('login');
         }
+
     });
 
     window.timersCollection = new Timers();

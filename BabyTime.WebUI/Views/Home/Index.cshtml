@@ -7,7 +7,7 @@
 <script type="text/javascript">
     $(function() {
         window.App = new TimersRouter();
-        Backbone.history.start({ pushState: true });
+        Backbone.history.start();
         window.timersCollection.fetch();
     });
 </script>
