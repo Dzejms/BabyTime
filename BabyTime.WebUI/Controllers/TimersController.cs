@@ -21,7 +21,8 @@ namespace BabyTime.WebUI.Controllers
             IEnumerable<Timer> result = new[]
                              {
                                  new Timer {Name = "diapur", Label = "Diapur", Time = new DateTime()},
-                                 new Timer {Name = "food", Label = "Food", Time = new DateTime()}
+                                 new Timer {Name = "food", Label = "Food", Time = new DateTime()},
+                                 new Timer {Name = "sleep", Label = "Sleep", Time = new DateTime()}
                              };
             return result ;
         }

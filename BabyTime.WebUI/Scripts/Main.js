@@ -88,9 +88,23 @@ $(function () {
         }
     });
 
+    window.TimersRouter = Backbone.Router.extend({
+        routes: {
+            '': 'home',
+            'login': 'login'
+        },
+        
+        initialize: function () {
+            this.timersListView = new TimersListView({ collection: window.timersCollection });
+        },
+        
+        home: function () {
+            var $container = $('#timers').empty();
+            $container.append(this.timersListView.render().el);
+        }
+    });
 
-
-
-
+    window.timersCollection = new Timers();
+    
 
 });
