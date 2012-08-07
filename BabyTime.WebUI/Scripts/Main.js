@@ -31,18 +31,22 @@
 //});
 
 
-$(function() {
+$(function () {
+    
+    // Model
     window.Timer = Backbone.Model.extend({
         isStarted: function () {
             return false;
         }
     });
 
+    // Collection
     window.Timers = Backbone.Collection.extend({
         model: Timer,
         url: '/api/timers'
     });
 
+    // View
     window.TimerView = Backbone.View.extend({
         tagName: 'li',
 
@@ -61,4 +65,32 @@ $(function() {
         },
         
     });
+
+    window.TimersListView = Backbone.View.extend({
+        tagName: 'section',
+        className: 'timersListView',
+        initialize: function () {
+            _.bindAll(this, 'render');
+            this.template = _.template($('#timersListTemplate').html());
+            this.collection.bind('reset', this.render);
+        },
+        render: function () {
+            var $timers;
+            var collection = this.collection;
+
+            this.$el.html(this.template({ Username: 'Jimmy' }));
+            $timers = this.$el;
+            collection.each(function(timer) {
+                var view = new TimerView({ model: timer, collection: collection });
+                $timers.append(view.render().el);
+            });
+            return this;
+        }
+    });
+
+
+
+
+
+
 });

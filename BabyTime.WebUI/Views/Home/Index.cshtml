@@ -4,13 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/template" id="timersListTemplate">
+<h2><%= Username%>'s Timers</h2>
 <a id="clearAllTimers" href="">Clear</a>
-
+</script>
 
 <script type="text/template" id="timerTemplate">
     <fieldset data-role="controlgroup">
-    <div class="label" contenteditable=true id="<%=name%>TimerLabel"><%=label%></div>
-    <input class="timerDisplay" type="text" id="<%=name%>TimerTextBox" value="" readonly="readonly"></input>
-    <a class="startbutton" name="<%=name%>Button" id="<%=name%>Button" data-role="button" data-inline="false" data-transition="flow" data-theme="e" href="" data-icon="refresh" data-iconpos="left">Restart</a></div>
+    <div class="label" contenteditable=true id="<%=Name%>TimerLabel"><%=Label%></div>
+    <input class="timerDisplay" type="text" id="<%=Name%>TimerTextBox" value="" readonly="readonly"></input>
+    <a class="startbutton" name="<%=Name%>Button" id="<%=Name%>Button" data-role="button" data-inline="false" data-transition="flow" data-theme="e" href="" data-icon="refresh" data-iconpos="left">Restart</a></div>
     </fieldset>
 </script>
